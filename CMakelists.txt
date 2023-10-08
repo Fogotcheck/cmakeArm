@@ -62,5 +62,5 @@ target_link_libraries(${PROJECT_NAME}.elf cmsisLib)
 add_subdirectory("${CMAKE_SOURCE_DIR}/ExtLibs/PlatformLibs")
 
 # добавляет к проекту FreeRTOS 
-target_link_libraries(${PROJECT_NAME}.elf freertos_kernel)
-add_subdirectory("${CMAKE_SOURCE_DIR}/FreeRTOS/FreeRTOS/Source")
+# target_link_libraries(${PROJECT_NAME}.elf freertos_kernel)
+# add_subdirectory("${CMAKE_SOURCE_DIR}/FreeRTOS/FreeRTOS/Source")
