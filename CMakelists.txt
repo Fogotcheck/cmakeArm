@@ -35,6 +35,7 @@ set(CMAKE_EXE_LINKER_FLAGS "${COMMON_FLAGS} -T${LINKER_SCRIPT}")
 
 add_executable(${PROJECT_NAME}.elf ${SRC_LIST})
 
+# Опции дополнительной сборки
 add_custom_command(
     TARGET ${PROJECT_NAME}.elf POST_BUILD
     COMMAND ${CMAKE_OBJCOPY} -O binary ${PROJECT_NAME}.elf ${PROJECT_NAME}.bin
@@ -44,6 +45,7 @@ add_custom_command(
     COMMAND ${CMAKE_SIZE} ${PROJECT_NAME}.elf
 )
 
+# TODO: Для видимости в проекте открыл доступ, необходимо закрыть/частично закрыть доступ к данным файлам
 target_include_directories(${PROJECT_NAME}.elf PUBLIC
     "${CMAKE_SOURCE_DIR}/AT32F435_437_Firmware_Library/libraries/cmsis/cm4/core_support"
     "${CMAKE_SOURCE_DIR}/AT32F435_437_Firmware_Library/libraries/cmsis/cm4/device_support"
@@ -53,6 +55,7 @@ target_include_directories(${PROJECT_NAME}.elf PUBLIC
     "${CMAKE_SOURCE_DIR}/cmake/cmsis/clockSettings"
 )
 
-
+# Добавляет к проекту настройки платформы зависимости -> 
+# - cmake\cmsis\clockSettings
 target_link_libraries(${PROJECT_NAME}.elf cmsisLib)
 add_subdirectory("${CMAKE_SOURCE_DIR}/cmake/cmsis")
