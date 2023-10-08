@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.26.4)
+project(NewlibCallStabs)
+
+file(GLOB_RECURSE NewLibHead ./*.h)
+file(GLOB_RECURSE NewLibSrc ./*.c)
+
+add_library(NewlibCallStabs ${NewLibHead} ${NewLibSrc})
