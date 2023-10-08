@@ -1,3 +1,6 @@
 [submodule "AT32F435_437_Firmware_Library"]
 	path = AT32F435_437_Firmware_Library
 	url = https://github.com/ArteryTek/AT32F435_437_Firmware_Library.git
+[submodule "FreeRTOS"]
+	path = FreeRTOS
+	url = https://github.com/FreeRTOS/FreeRTOS.git
