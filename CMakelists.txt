@@ -24,6 +24,7 @@ project(Artery VERSION 0.1.0 LANGUAGES C ASM)
 set(SRC_LIST "./main/main.c"
     "./main/main.h"
     "${CMAKE_SOURCE_DIR}/mztaSystemCallStubs/NewLibCallStabs.c"
+    "${CMAKE_SOURCE_DIR}/ExtLibs/FreeRTOS_settings/FreeRTOSConfig.h"
 )
 set(LINKER_SCRIPT "${CMAKE_CURRENT_LIST_DIR}/AT32F435_437_Firmware_Library/libraries/cmsis/cm4/device_support/startup/gcc/linker/AT32F437xM_FLASH.ld")
 set(COMMON_FLAGS "-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -Wall")
@@ -56,6 +57,10 @@ target_include_directories(${PROJECT_NAME}.elf PUBLIC
 )
 
 # Добавляет к проекту настройки платформы зависимости -> 
-# - cmake\cmsis\clockSettings
+# - ExtLibs\PlatformLibs\clockSettings
 target_link_libraries(${PROJECT_NAME}.elf cmsisLib)
 add_subdirectory("${CMAKE_SOURCE_DIR}/ExtLibs/PlatformLibs")
+
+# добавляет к проекту FreeRTOS 
+target_link_libraries(${PROJECT_NAME}.elf freertos_kernel)
+add_subdirectory("${CMAKE_SOURCE_DIR}/FreeRTOS/FreeRTOS/Source")
