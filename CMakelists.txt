@@ -52,10 +52,10 @@ target_include_directories(${PROJECT_NAME}.elf PUBLIC
     "${CMAKE_SOURCE_DIR}/AT32F435_437_Firmware_Library/libraries/cmsis/cm4"
     "${CMAKE_SOURCE_DIR}/AT32F435_437_Firmware_Library/libraries/drivers/inc"
     "${CMAKE_SOURCE_DIR}/AT32F435_437_Firmware_Library/libraries/drivers/src"
-    "${CMAKE_SOURCE_DIR}/cmake/cmsis/clockSettings"
+    "${CMAKE_SOURCE_DIR}/ExtLibs/PlatformLibs/clockSettings"
 )
 
 # Добавляет к проекту настройки платформы зависимости -> 
 # - cmake\cmsis\clockSettings
 target_link_libraries(${PROJECT_NAME}.elf cmsisLib)
-add_subdirectory("${CMAKE_SOURCE_DIR}/cmake/cmsis")
+add_subdirectory("${CMAKE_SOURCE_DIR}/ExtLibs/PlatformLibs")

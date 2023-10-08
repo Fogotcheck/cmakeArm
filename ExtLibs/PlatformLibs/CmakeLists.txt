@@ -14,7 +14,7 @@ set(PlatformCMSIS "${CMAKE_SOURCE_DIR}/AT32F435_437_Firmware_Library/libraries/c
 file(GLOB_RECURSE cmsisLibHead "${CMAKE_SOURCE_DIR}/AT32F435_437_Firmware_Library/libraries/cmsis/cm4/core_support/*.h"
     "${CMAKE_SOURCE_DIR}/AT32F435_437_Firmware_Library/libraries/cmsis/cm4/device_support/*.h")
 set(cmsisLibSrc "${CMAKE_SOURCE_DIR}/AT32F435_437_Firmware_Library/libraries/cmsis/cm4/device_support/system_at32f435_437.c"
-    "${CMAKE_SOURCE_DIR}/cmake/cmsis/clockSettings/at32f435_437_clock.c")
+    "${CMAKE_SOURCE_DIR}/ExtLibs/PlatformLibs/clockSettings/at32f435_437_clock.c")
 message("PlatformCMSIS::${PlatformCMSIS}")
 
 file(GLOB_RECURSE DriversLibHead "${CMAKE_SOURCE_DIR}/AT32F435_437_Firmware_Library/libraries/drivers/*.h")
@@ -29,6 +29,6 @@ target_include_directories(cmsisLib PRIVATE
     "${CMAKE_SOURCE_DIR}/AT32F435_437_Firmware_Library/libraries/drivers"
     "${CMAKE_SOURCE_DIR}/AT32F435_437_Firmware_Library/libraries/drivers/inc"
     "${CMAKE_SOURCE_DIR}/AT32F435_437_Firmware_Library/libraries/drivers/src"
-    "${CMAKE_SOURCE_DIR}/cmake/cmsis/clockSettings"
+    "${CMAKE_SOURCE_DIR}/ExtLibs/PlatformLibs/clockSettings"
 )
 
